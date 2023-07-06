@@ -7,9 +7,12 @@ const store = createStore({
             age: 20,
             likes : 30,
             좋아요눌렀니 : false,
+            more : {},
+
         }
     },
     mutations: {
+
         좋아요(state){
             if(state.좋아요눌렀니 == false){
                 state.likes++
@@ -25,7 +28,10 @@ const store = createStore({
         나이추가(state) {
             state.age = state.age + 1
         },
-    }
+    },
+    actions : {
+
+    },
 })
 
 export default store;

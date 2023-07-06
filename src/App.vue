@@ -14,6 +14,9 @@
   <h4>안녕 {{ $store.state.age }}</h4>
   <button @click="$store.commit('나이추가')">나이버튼</button>
 
+  <p>{{ $store.state.more }}</p>
+  <button>더보기버튼</button>
+
   <Container @write="작성한글 = $event" :이미지="이미지" :게시물="게시물" :step="step" />
 
   <button @click="more">더보기</button>
