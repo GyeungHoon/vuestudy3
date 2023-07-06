@@ -9,12 +9,16 @@
     </ul>
     <img src="./assets/logo.png" class="logo" />
   </div>
+  <h4>안녕 {{ $store.state.name }}</h4>
+  <button @click="$store.commit('이름변경')">이름버튼</button>
+  <h4>안녕 {{ $store.state.age }}</h4>
+  <button @click="$store.commit('나이추가')">나이버튼</button>
 
   <Container @write="작성한글 = $event" :이미지="이미지" :게시물="게시물" :step="step" />
 
   <button @click="more">더보기</button>
 
-  <div class="footer">
+  <div class="footer"  v-if="step == 0">
     <ul class="footer-button-plus">
       <input @change="upload" type="file" id="file" class="inputfile" />
       <label for="file" class="input-plus">+</label>
@@ -73,12 +77,13 @@ export default {
         });
     },
     upload(e) {
+      console.log('upload 실행됨')
       let 파일 = e.target.files;
       console.log(파일);
       let url = URL.createObjectURL(파일[0]);
       this.이미지 = url;
       console.log(url);
-      this.step++;
+      this.step = this.step + 1;
     },
   },
 };
