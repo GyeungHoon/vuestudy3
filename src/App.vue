@@ -1,44 +1,91 @@
 <template>
-<div class="header">
+  <div class="header">
     <ul class="header-button-left">
       <li>Cancel</li>
     </ul>
     <ul class="header-button-right">
-      <li>Next</li>
+      <li v-if="step == 1" @click="step++">Next</li>
+      <li v-if="step == 2" @click="publish">발행</li>
     </ul>
     <img src="./assets/logo.png" class="logo" />
   </div>
 
-  <Container :게시물="게시물"/>
+  <Container @write="작성한글 = $event" :이미지="이미지" :게시물="게시물" :step="step" />
+
+  <button @click="more">더보기</button>
 
   <div class="footer">
     <ul class="footer-button-plus">
-      <input type="file" id="file" class="inputfile" />
+      <input @change="upload" type="file" id="file" class="inputfile" />
       <label for="file" class="input-plus">+</label>
     </ul>
- </div>
+  </div>
 </template>
 
 <script>
-import Container from './components/Container.vue'
-import postdata from './assets/postdata.js'
+import Container from "./components/Container.vue";
+import postdata from "./assets/postdata.js";
+import axios from "axios";
 export default {
-  
-  name: 'App',
-  data(){
+  // eslint-disable-next-line
+  name: "App",
+  data() {
     return {
-      게시물 : postdata,
+      step: 0,
+      게시물: postdata,
+      이미지: "",
+      작성한글 : '',
+      선택한필터 : '',
     }
   },
+  mounted() {
+    this.emitter.on("박스클릭함", (a) => {
+      this.선택한필터 = a;
+    })
+  },
+  // eslint-disable-next-line
   components: {
-    Container : Container,
-  }
-}
+    Container: Container,
+  },
+  methods: {
+    // eslint-disable-next-line
+    publish() {
+      // eslint-disable-next-line
+      var 내게시물 = {
+        name: "Kim Hyun",
+        userImage: "https://picsum.photos/100?random=3",
+        postImage: this.이미지,
+        likes: 36,
+        date: "May 15",
+        liked: false,
+        content: this.작성한글,
+        filter: this.선택한필터
+      };
+      this.게시물.unshift(내게시물);
+      this.step = 0;
+    },
+    more() {
+      axios
+        .get("https://codingapple1.github.io/vue/more0.json")
+        .then((결과) => {
+          console.log(결과.data);
+          this.게시물.push(결과.data);
+        });
+    },
+    upload(e) {
+      let 파일 = e.target.files;
+      console.log(파일);
+      let url = URL.createObjectURL(파일[0]);
+      this.이미지 = url;
+      console.log(url);
+      this.step++;
+    },
+  },
+};
 </script>
 
 <style>
- 
- body {
+body {
   margin: 0;
 }
 ul {
