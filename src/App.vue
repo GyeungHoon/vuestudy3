@@ -1,9 +1,10 @@
 <template>
   <div class="header">
     <ul class="header-button-left">
-      <li>Cancel</li>
+      <li v-if="step != 0" @click="step=0">Cancel</li>
     </ul>
     <ul class="header-button-right">
+      <li v-if="step == 0" @click="step+=3">mypage</li>
       <li v-if="step == 1" @click="step++">Next</li>
       <li v-if="step == 2" @click="publish">발행</li>
     </ul>
@@ -43,7 +44,7 @@ export default {
   name: "App",
   data() {
     return {
-      step: 3,
+      step: 0,
       게시물: postdata,
       이미지: "",
       작성한글 : '',
