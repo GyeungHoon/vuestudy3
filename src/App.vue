@@ -9,17 +9,21 @@
     </ul>
     <img src="./assets/logo.png" class="logo" />
   </div>
-  <h4>안녕 {{ $store.state.name }}</h4>
+
+  <p>{{ name }} {{ age }} {{ likes }}</p>
+
+  <!-- <h4>안녕 {{ $store.state.name }}</h4>
   <button @click="$store.commit('이름변경')">이름버튼</button>
   <h4>안녕 {{ $store.state.age }}</h4>
   <button @click="$store.commit('나이추가')">나이버튼</button>
 
   <p>{{ $store.state.more }}</p>
-  <button>더보기버튼</button>
+  <button @click="$store.dispatch('getData')">더보기버튼</button> -->
 
   <Container @write="작성한글 = $event" :이미지="이미지" :게시물="게시물" :step="step" />
 
-  <button @click="more">더보기</button>
+  <!-- <button @click="more">더보기</button> -->
+
 
   <div class="footer"  v-if="step == 0">
     <ul class="footer-button-plus">
@@ -33,16 +37,18 @@
 import Container from "./components/Container.vue";
 import postdata from "./assets/postdata.js";
 import axios from "axios";
+import { mapMutations, mapState } from 'vuex';
 export default {
   // eslint-disable-next-line
   name: "App",
   data() {
     return {
-      step: 0,
+      step: 3,
       게시물: postdata,
       이미지: "",
       작성한글 : '',
       선택한필터 : '',
+      
     }
   },
   mounted() {
@@ -54,7 +60,16 @@ export default {
   components: {
     Container: Container,
   },
+  computed:{
+    name(){
+      return this.$store.state.name
+    },
+    ...mapState(['name','age','likes']),
+    ...mapState({작명 : 'name',})
+  },
   methods: {
+    ...mapMutations(['setMore','좋아요']),
+
     // eslint-disable-next-line
     publish() {
       // eslint-disable-next-line
