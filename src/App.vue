@@ -21,7 +21,7 @@
 
   <Container @write="작성한글 = $event" :이미지="이미지" :게시물="게시물" :step="step" />
 
-  <button  v-if="step == 0" @click="more">더보기</button>
+  <button class="more" v-if="step == 0" @click="more">더보기</button>
 
 
   <div class="footer"  v-if="step == 0">
@@ -182,5 +182,10 @@ ul {
   position: relative;
   border-right: 1px solid #eee;
   border-left: 1px solid #eee;
+}
+.more{
+  width: 200px;
+  margin-left: 25%;
+  background: rgb(143, 206, 235);
 }
 </style>
