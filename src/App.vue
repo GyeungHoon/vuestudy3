@@ -11,8 +11,6 @@
     <img src="./assets/logo.png" class="logo" />
   </div>
 
-  <p>{{ name }} {{ age }} {{ likes }}</p>
-
   <!-- <h4>안녕 {{ $store.state.name }}</h4>
   <button @click="$store.commit('이름변경')">이름버튼</button>
   <h4>안녕 {{ $store.state.age }}</h4>
@@ -23,7 +21,7 @@
 
   <Container @write="작성한글 = $event" :이미지="이미지" :게시물="게시물" :step="step" />
 
-  <!-- <button @click="more">더보기</button> -->
+  <button  v-if="step == 0" @click="more">더보기</button>
 
 
   <div class="footer"  v-if="step == 0">
