@@ -1,7 +1,7 @@
 <template>
   <div style="padding: 10px">
     <h4>팔로워</h4>
-    <input placeholder="?" />
+    <input placeholder="검색어를 입력해주세요" />
     <div class="post-header" v-for="(a, i) in follower" :key="i">
       <div class="profile" :style="`background-image:url(${a.image})`"></div>
       <span class="profile-name">{{ a.name }}</span>
