@@ -132,7 +132,7 @@ ul {
   top: 0;
 }
 .header-button-left {
-  color: skyblue;
+  color: #A6E4FF;
   float: left;
   width: 50px;
   padding-left: 20px;
@@ -140,7 +140,7 @@ ul {
   margin-top: 10px;
 }
 .header-button-right {
-  color: skyblue;
+  color: #A6E4FF;
   float: right;
   width: 50px;
   cursor: pointer;
@@ -185,7 +185,20 @@ ul {
 }
 .more{
   width: 200px;
+  margin: 100px 0px;
+  font-size: 16px;
+  font-weight: bold;
   margin-left: 25%;
-  background: rgb(143, 206, 235);
+  border: 0;
+  box-shadow: 3px 3px 3px rgb(167, 165, 165);
+  transition-duration: 0.3s;
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+}
+.more:active{
+  box-shadow: none;
+  margin-left: inherit;
+  margin: 105px 0px;
+  margin-left: 25.5%;
 }
 </style>

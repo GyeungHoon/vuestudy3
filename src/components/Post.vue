@@ -26,6 +26,9 @@ export default {
 <style>
 .post {
   width: 100%;
+  margin: 20px 0;
+  border: 1px solid black;
+  box-sizing: border-box;
 }
 .profile {
   background-image: url("https://placeimg.com/100/100/arch");
@@ -49,6 +52,9 @@ export default {
 .post-body {
   background-image: url("https://placeimg.com/640/480/animals");
   height: 450px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  box-sizing: border-box;
   background-position: center;
   background-size: cover;
 }

@@ -32,9 +32,8 @@
       <div class="write">
         <textarea
           @input="$emit('write', $event.target.value)"
-          class="write-box"
-        >
-write!</textarea
+          class="write-box" placeholder="글을 입력해주세요">
+</textarea
         >
       </div>
     </div>
