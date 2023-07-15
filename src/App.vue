@@ -4,9 +4,9 @@
       <li v-if="step != 0" @click="step=0">Cancel</li>
     </ul>
     <ul class="header-button-right">
-      <li v-if="step == 0" @click="step+=3">follow</li>
+      <li v-if="step == 0" @click="step+=3">Follow</li>
       <li v-if="step == 1" @click="step++">Next</li>
-      <li v-if="step == 2" @click="publish">발행</li>
+      <li v-if="step == 2" @click="publish">Posting</li>
     </ul>
     <img src="./assets/logo.png" class="logo" />
   </div>
@@ -73,11 +73,11 @@ export default {
     publish() {
       // eslint-disable-next-line
       var 내게시물 = {
-        name: "Kim Hyun",
+        name: "John Doe",
         userImage: "https://picsum.photos/100?random=3",
         postImage: this.이미지,
-        likes: 36,
-        date: "May 15",
+        likes: 44,
+        date: "Jul 17",
         liked: false,
         content: this.작성한글,
         filter: this.선택한필터
@@ -132,7 +132,7 @@ ul {
   top: 0;
 }
 .header-button-left {
-  color: #A6E4FF;
+  color: #646efc;
   float: left;
   width: 50px;
   padding-left: 20px;
@@ -140,7 +140,7 @@ ul {
   margin-top: 10px;
 }
 .header-button-right {
-  color: #A6E4FF;
+  color: #646efc;
   float: right;
   width: 50px;
   cursor: pointer;
@@ -191,14 +191,15 @@ ul {
   margin-left: 25%;
   border: 0;
   box-shadow: 3px 3px 3px rgb(167, 165, 165);
-  transition-duration: 0.3s;
+  transition-duration: 0.1s;
   cursor: pointer;
   background: rgb(255, 255, 255);
 }
 .more:active{
+  background-color: #d3d3d3;
   box-shadow: none;
   margin-left: inherit;
-  margin: 105px 0px;
-  margin-left: 25.5%;
+  margin: 103px 0px;
+  margin-left: 25.3%;
 }
 </style>

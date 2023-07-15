@@ -30,11 +30,7 @@
         :style="`background-image:url(${이미지})`"
       ></div>
       <div class="write">
-        <textarea
-          @input="$emit('write', $event.target.value)"
-          class="write-box" placeholder="글을 입력해주세요">
-</textarea
-        >
+        <textarea @input="$emit('write', $event.target.value)" class="write-box" placeholder="게시글을 작성해주세요."></textarea>
       </div>
     </div>
 
@@ -137,11 +133,10 @@ export default {
   background: #555;
 }
 .write-box {
-  border: none;
-  width: 90%;
+  width: 93%;
   height: 100px;
   padding: 15px;
-  margin: auto;
+  margin: 5px auto 0;
   display: block;
   outline: none;
 }

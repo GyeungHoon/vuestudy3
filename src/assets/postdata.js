@@ -1,6 +1,6 @@
 export default[
   {
-    name: "Kim Hyun Woo",
+    name: "Minny",
     userImage: "https://picsum.photos/100?random=3",
     postImage: "https://picsum.photos/600?random=3",
     likes: 36,
@@ -20,13 +20,13 @@ export default[
     filter: "clarendon"
   },
   {
-    name: "Minny",
+    name: "Chany",
     userImage: "https://picsum.photos/100?random=5",
     postImage: "https://picsum.photos/600?random=5",
     likes: 49,
     date: "Apr 4",
     liked: false,
-    content: "에헤이~ 조졌네 이거",
+    content: "날씨가 너무 좋다",
     filter: "lofi"
   }
 ]
