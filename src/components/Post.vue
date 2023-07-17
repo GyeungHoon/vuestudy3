@@ -27,7 +27,7 @@ export default {
 .post {
   width: 100%;
   margin: 20px 0;
-  border: 1px solid black;
+  border: 1px solid #ddd;
   box-sizing: border-box;
 }
 .profile {
